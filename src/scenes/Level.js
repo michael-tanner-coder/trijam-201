@@ -292,7 +292,6 @@ class Level extends Phaser.Scene {
 
   /* START-USER-CODE */
   // JAM CHANGES
-  // TODO: limit players to only one button press per round
   // TODO: make round duration a little longer to match tick sound
   // TODO: create game instructions to teach players the rules
   // TODO: lengthen door sprite
@@ -354,6 +353,11 @@ class Level extends Phaser.Scene {
       this.bomb.body.allowGravity = true;
       this.bomb.visible = true;
       this.setEscalationValue();
+      this.buttons.forEach((button) => {
+        const buttonScript = ButtonScript.getComponent(button);
+        buttonScript.resetPresses();
+        buttonScript.gameObject.state = RELEASED;
+      });
     };
 
     // COUNTDOWN

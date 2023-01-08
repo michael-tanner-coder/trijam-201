@@ -14,6 +14,7 @@ class ButtonScript extends UserComponent {
 
     /* START-USER-CTR-CODE */
     this.target_y = this.gameObject.y;
+    this.presses = 1;
     /* END-USER-CTR-CODE */
   }
 
@@ -26,6 +27,10 @@ class ButtonScript extends UserComponent {
   gameObject;
 
   /* START-USER-CODE */
+
+  resetPresses() {
+    this.presses = 1;
+  }
 
   activateDoors() {
     this.gameObject.scene.doors?.forEach((door) => {
@@ -57,9 +62,10 @@ class ButtonScript extends UserComponent {
         }
         break;
       case PRESSED:
-        if (this.gameObject.body.touching.up) {
+        if (this.gameObject.body.touching.up && this.presses > 0) {
           this.activateDoors();
-          this.gameObject.state = RELEASED;
+          // this.gameObject.state = RELEASED;
+          this.presses -= 1;
         }
         break;
       case RELEASED:
