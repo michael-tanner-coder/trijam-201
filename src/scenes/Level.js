@@ -294,7 +294,6 @@ class Level extends Phaser.Scene {
   // JAM CHANGES
   // TODO: create game instructions to teach players the rules
   // TODO: make a quieter door sound
-  // TODO: add "press enter" to winner UI
 
   // BUGS
   // TODO: explosion sound only plays at end of first round
