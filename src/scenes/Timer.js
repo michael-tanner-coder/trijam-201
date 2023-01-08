@@ -9,7 +9,7 @@ class Timer extends Phaser.GameObjects.Sprite {
 
 		// this (components)
 		const thisTween = new Tween(this);
-		thisTween.duration = 3000;
+		thisTween.duration = 7000;
 		thisTween.startPlaying = false;
 		thisTween.property = "displayWidth";
 		thisTween.targetValue = 1;

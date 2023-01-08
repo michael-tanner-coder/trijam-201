@@ -16,7 +16,7 @@
             "components": [
                 "Tween"
             ],
-            "Tween.duration": 3000,
+            "Tween.duration": 7000,
             "Tween.startPlaying": false,
             "Tween.property": "displayWidth",
             "Tween.targetValue": "1",
