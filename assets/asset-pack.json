@@ -95,6 +95,11 @@
                 "key": "ButtonSound"
             },
             {
+                "url": "assets/ButtonTutorial.png",
+                "type": "image",
+                "key": "ButtonTutorial"
+            },
+            {
                 "url": "assets/ceiling.png",
                 "type": "image",
                 "key": "ceiling"
@@ -132,6 +137,11 @@
                 ],
                 "type": "audio",
                 "key": "DoorSound"
+            },
+            {
+                "url": "assets/DoorTutorial.png",
+                "type": "image",
+                "key": "DoorTutorial"
             },
             {
                 "url": "assets/empty.png",
@@ -209,9 +219,19 @@
                 "key": "Jump_1"
             },
             {
+                "url": "assets/JumpTutorial.png",
+                "type": "image",
+                "key": "JumpTutorial"
+            },
+            {
                 "url": "src/components/Lerp.js",
                 "type": "script",
                 "key": "Lerp"
+            },
+            {
+                "url": "assets/LuckTutorial.png",
+                "type": "image",
+                "key": "LuckTutorial"
             },
             {
                 "url": [
@@ -264,6 +284,11 @@
                 "url": "src/scenes/PointSign.js",
                 "type": "script",
                 "key": "PointSign"
+            },
+            {
+                "url": "assets/PressesTutorial.png",
+                "type": "image",
+                "key": "PressesTutorial"
             },
             {
                 "url": "assets/score.png",
