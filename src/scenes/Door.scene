@@ -1,0 +1,34 @@
+{
+    "id": "fe1b0ed5-861c-43b3-a779-5c68dcf16dfc",
+    "sceneType": "PREFAB",
+    "settings": {
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 160,
+        "borderHeight": 120
+    },
+    "displayList": [
+        {
+            "type": "Sprite",
+            "id": "72aed5cc-87c5-4790-a120-0913db1d968b",
+            "label": "blast_door",
+            "components": [
+                "Connection",
+                "DoorScript"
+            ],
+            "texture": {
+                "key": "blast-door"
+            },
+            "originX": 0,
+            "originY": 0
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

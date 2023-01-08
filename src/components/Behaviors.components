@@ -11,11 +11,333 @@
             "baseClass": "UserComponent",
             "gameObjectType": "Phaser.GameObjects.Text",
             "properties": []
+        },
+        {
+            "name": "PhysicsBody",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "enabled",
+                    "label": "Enabled",
+                    "tooltip": "Physics body is turned on",
+                    "defValue": true,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "static",
+                    "label": "Static",
+                    "tooltip": "Prevent object from being moved by collision; disabled gravity",
+                    "defValue": false,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "bounce",
+                    "label": "Bounce",
+                    "tooltip": "Set bounciness of body (floating point)",
+                    "defValue": 0,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "allowGravity",
+                    "label": "Allow Gravity",
+                    "tooltip": "Turn gravity on or off",
+                    "defValue": true,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "boolean"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Jump",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "jumpKey",
+                    "label": "Jump Key",
+                    "tooltip": "The key that will start the object's jump",
+                    "defValue": "",
+                    "customDefinition": true,
+                    "type": {
+                        "id": "string"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Tween",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "duration",
+                    "label": "Duration",
+                    "tooltip": "Length of tween animation",
+                    "defValue": 0,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "ease",
+                    "label": "Ease",
+                    "tooltip": "Easing function for animation",
+                    "defValue": "linear",
+                    "customDefinition": true,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "startPlaying",
+                    "label": "Start Playing",
+                    "tooltip": "Start the tween's animation",
+                    "defValue": true,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "callbackScope",
+                    "label": "Callback Scope",
+                    "tooltip": "Defines the scope of any callback functions",
+                    "defValue": "gameObject.scene",
+                    "customDefinition": true,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "property",
+                    "label": "Property",
+                    "tooltip": "The object property to tween",
+                    "defValue": "x",
+                    "customDefinition": true,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "targetValue",
+                    "label": "Target Value",
+                    "tooltip": "The value to tween towards",
+                    "defValue": "0",
+                    "customDefinition": true,
+                    "type": {
+                        "id": "expression",
+                        "expressionType": "any"
+                    }
+                },
+                {
+                    "name": "repeat",
+                    "label": "Repeat",
+                    "tooltip": "How many times the animation will repeat (-1 = infinite)",
+                    "defValue": 0,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "onComplete",
+                    "label": "On Complete",
+                    "tooltip": "Function to execute when tween ends",
+                    "defValue": "() => {console.log(\"done\");}",
+                    "customDefinition": true,
+                    "type": {
+                        "id": "expression",
+                        "expressionType": "any"
+                    }
+                },
+                {
+                    "name": "onStart",
+                    "label": "On Start",
+                    "tooltip": "Function to execute at the start of the animation",
+                    "defValue": "() => {console.log(\"start\"); }",
+                    "customDefinition": true,
+                    "type": {
+                        "id": "expression",
+                        "expressionType": "any"
+                    }
+                },
+                {
+                    "name": "yoyo",
+                    "label": "Yo-yo",
+                    "tooltip": "Set if the animation will play back and forth",
+                    "defValue": false,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "boolean"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Lerp",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "property",
+                    "label": "Property",
+                    "tooltip": "The property to interpolate",
+                    "defValue": "x",
+                    "customDefinition": true,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "targetValue",
+                    "label": "Target Value",
+                    "tooltip": "The value to interpolate towards",
+                    "defValue": "0",
+                    "customDefinition": true,
+                    "type": {
+                        "id": "expression",
+                        "expressionType": "any"
+                    }
+                },
+                {
+                    "name": "percentage",
+                    "label": "Percentage",
+                    "tooltip": "The percentage we will move towards the target value",
+                    "defValue": 0.1,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "active",
+                    "label": "Active",
+                    "tooltip": "Whether or not the lerp should be interpolating",
+                    "defValue": true,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "tolerance",
+                    "label": "Tolerance",
+                    "tooltip": "How close to the target value is the lerp considered to be finished",
+                    "defValue": 0.001,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "number"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Connection",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "object",
+                    "label": "Connected Objecy",
+                    "tooltip": "The object to connect to",
+                    "defValue": "",
+                    "customDefinition": true,
+                    "type": {
+                        "id": "object-var",
+                        "expressionType": "Phaser.GameObjects.GameObject"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Score",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "score",
+                    "label": "Score",
+                    "tooltip": "How many points does a player have?",
+                    "defValue": 0,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "maxScore",
+                    "label": "Max Score",
+                    "tooltip": "The highest score value allowed",
+                    "defValue": 3,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "minScore",
+                    "label": "Minimum Score",
+                    "tooltip": "The lowest score allowed",
+                    "defValue": 0,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "player",
+                    "label": "Player",
+                    "tooltip": "The player who owns the score",
+                    "defValue": "",
+                    "customDefinition": true,
+                    "type": {
+                        "id": "object-var",
+                        "expressionType": "Phaser.GameObjects.GameObject"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "PlayerScript",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": []
+        },
+        {
+            "name": "DoorScript",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": []
+        },
+        {
+            "name": "ButtonScript",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": []
+        },
+        {
+            "name": "ScoreFillScript",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": []
         }
     ],
     "meta": {
-        "app": "Phaser Editor 2D - Object Script Editor",
+        "app": "Phaser Editor 2D - User Components Editor",
         "url": "https://phasereditor2d.com",
-        "contentType": "phasereditor2d.core.scene.SceneContentType"
+        "contentType": "phasereditor2d.core.scene.UserComponents"
     }
 }

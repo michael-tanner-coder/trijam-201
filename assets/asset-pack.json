@@ -2,9 +2,360 @@
     "section1": {
         "files": [
             {
-                "url": "assets/dino.png",
-                "key": "dino",
-                "type": "image"
+                "url": "assets/background.png",
+                "type": "image",
+                "key": "background"
+            },
+            {
+                "url": "src/scenes/Background.js",
+                "type": "script",
+                "key": "Background"
+            },
+            {
+                "url": "assets/blast-door.png",
+                "type": "image",
+                "key": "blast-door"
+            },
+            {
+                "url": [
+                    "assets/BlipSound.wav"
+                ],
+                "type": "audio",
+                "key": "BlipSound"
+            },
+            {
+                "url": "assets/bomb.png",
+                "type": "image",
+                "key": "bomb"
+            },
+            {
+                "url": [
+                    "assets/BombSound.wav"
+                ],
+                "type": "audio",
+                "key": "BombSound"
+            },
+            {
+                "url": "assets/button.png",
+                "type": "image",
+                "key": "button"
+            },
+            {
+                "url": [
+                    "assets/button_game_150.wav"
+                ],
+                "type": "audio",
+                "key": "button_game_150"
+            },
+            {
+                "url": [
+                    "assets/button_game_170.wav"
+                ],
+                "type": "audio",
+                "key": "button_game_170"
+            },
+            {
+                "url": [
+                    "assets/button_game_190.wav"
+                ],
+                "type": "audio",
+                "key": "button_game_190"
+            },
+            {
+                "url": [
+                    "assets/ButtonGameSong.wav"
+                ],
+                "type": "audio",
+                "key": "ButtonGameSong"
+            },
+            {
+                "url": [
+                    "assets/ButtonGameSongOutro.wav"
+                ],
+                "type": "audio",
+                "key": "ButtonGameSongOutro"
+            },
+            {
+                "url": [
+                    "assets/ButtonGameTestSong.wav"
+                ],
+                "type": "audio",
+                "key": "ButtonGameTestSong"
+            },
+            {
+                "url": "src/components/ButtonScript.js",
+                "type": "script",
+                "key": "ButtonScript"
+            },
+            {
+                "url": [
+                    "assets/ButtonSound.wav"
+                ],
+                "type": "audio",
+                "key": "ButtonSound"
+            },
+            {
+                "url": "assets/ceiling.png",
+                "type": "image",
+                "key": "ceiling"
+            },
+            {
+                "url": "src/scenes/Collider.js",
+                "type": "script",
+                "key": "Collider"
+            },
+            {
+                "url": "src/components/Connection.js",
+                "type": "script",
+                "key": "Connection"
+            },
+            {
+                "url": "src/countdown.json",
+                "type": "animation",
+                "key": "countdown"
+            },
+            {
+                "url": [
+                    "assets/CountdownSound.wav"
+                ],
+                "type": "audio",
+                "key": "CountdownSound"
+            },
+            {
+                "url": "src/components/DoorScript.js",
+                "type": "script",
+                "key": "DoorScript"
+            },
+            {
+                "url": [
+                    "assets/DoorSound.wav"
+                ],
+                "type": "audio",
+                "key": "DoorSound"
+            },
+            {
+                "url": "assets/empty.png",
+                "type": "image",
+                "key": "empty"
+            },
+            {
+                "url": "assets/explosion.png",
+                "type": "image",
+                "key": "explosion"
+            },
+            {
+                "url": [
+                    "assets/Explosion.wav"
+                ],
+                "type": "audio",
+                "key": "Explosion"
+            },
+            {
+                "url": "src/scenes/Explosion.js",
+                "type": "script",
+                "key": "Explosion_1"
+            },
+            {
+                "url": [
+                    "assets/FallSound.wav"
+                ],
+                "type": "audio",
+                "key": "FallSound"
+            },
+            {
+                "url": "assets/floor.png",
+                "type": "image",
+                "key": "floor"
+            },
+            {
+                "url": "src/scenes/Floor.js",
+                "type": "script",
+                "key": "Floor"
+            },
+            {
+                "url": "assets/go-text.png",
+                "type": "image",
+                "key": "go-text"
+            },
+            {
+                "url": [
+                    "assets/GroundedSound.wav"
+                ],
+                "type": "audio",
+                "key": "GroundedSound"
+            },
+            {
+                "url": [
+                    "assets/HitGroundSound.wav"
+                ],
+                "type": "audio",
+                "key": "HitGroundSound"
+            },
+            {
+                "url": "assets/hour-glass.png",
+                "type": "image",
+                "key": "hour-glass"
+            },
+            {
+                "url": [
+                    "assets/Jump.wav"
+                ],
+                "type": "audio",
+                "key": "Jump"
+            },
+            {
+                "url": "src/components/Jump.js",
+                "type": "script",
+                "key": "Jump_1"
+            },
+            {
+                "url": "src/components/Lerp.js",
+                "type": "script",
+                "key": "Lerp"
+            },
+            {
+                "url": [
+                    "assets/MenuSound.wav"
+                ],
+                "type": "audio",
+                "key": "MenuSound"
+            },
+            {
+                "url": "assets/p1-text.png",
+                "type": "image",
+                "key": "p1-text"
+            },
+            {
+                "url": "assets/p2-text.png",
+                "type": "image",
+                "key": "p2-text"
+            },
+            {
+                "url": "src/components/PhysicsBody.js",
+                "type": "script",
+                "key": "PhysicsBody"
+            },
+            {
+                "url": "assets/player-basic.png",
+                "type": "image",
+                "key": "player-basic"
+            },
+            {
+                "url": "assets/player-short.png",
+                "type": "image",
+                "key": "player-short"
+            },
+            {
+                "url": "assets/player-tall.png",
+                "type": "image",
+                "key": "player-tall"
+            },
+            {
+                "url": "src/components/PlayerScript.js",
+                "type": "script",
+                "key": "PlayerScript"
+            },
+            {
+                "url": "assets/point-sign.png",
+                "type": "image",
+                "key": "point-sign"
+            },
+            {
+                "url": "src/scenes/PointSign.js",
+                "type": "script",
+                "key": "PointSign"
+            },
+            {
+                "url": "assets/score.png",
+                "type": "image",
+                "key": "score"
+            },
+            {
+                "url": "src/components/Score.js",
+                "type": "script",
+                "key": "Score"
+            },
+            {
+                "url": "assets/score-fill.png",
+                "type": "image",
+                "key": "score-fill"
+            },
+            {
+                "url": "src/scenes/ScoreFill.js",
+                "type": "script",
+                "key": "ScoreFill"
+            },
+            {
+                "url": "src/components/ScoreFillScript.js",
+                "type": "script",
+                "key": "ScoreFillScript"
+            },
+            {
+                "url": "src/soundpriority.js",
+                "type": "script",
+                "key": "soundpriority"
+            },
+            {
+                "url": "assets/start-banner.png",
+                "type": "image",
+                "key": "start-banner"
+            },
+            {
+                "url": "assets/text-one.png",
+                "type": "image",
+                "key": "text-one"
+            },
+            {
+                "url": "assets/text-three.png",
+                "type": "image",
+                "key": "text-three"
+            },
+            {
+                "url": "assets/text-two.png",
+                "type": "image",
+                "key": "text-two"
+            },
+            {
+                "url": "src/scenes/Timer.js",
+                "type": "script",
+                "key": "Timer"
+            },
+            {
+                "url": "assets/timer-fill.png",
+                "type": "image",
+                "key": "timer-fill"
+            },
+            {
+                "url": "assets/timer-frame.png",
+                "type": "image",
+                "key": "timer-frame"
+            },
+            {
+                "url": "src/components/Tween.js",
+                "type": "script",
+                "key": "Tween"
+            },
+            {
+                "url": "src/utils.js",
+                "type": "script",
+                "key": "utils"
+            },
+            {
+                "url": [
+                    "assets/VictorySound.wav"
+                ],
+                "type": "audio",
+                "key": "VictorySound"
+            },
+            {
+                "url": "assets/winner-banner.png",
+                "type": "image",
+                "key": "winner-banner"
+            },
+            {
+                "url": "src/scenes/WinnerUI.js",
+                "type": "script",
+                "key": "WinnerUI"
             }
         ]
     },
@@ -12,6 +363,7 @@
         "app": "Phaser Editor 2D - Asset Pack Editor",
         "contentType": "phasereditor2d.pack.core.AssetContentType",
         "url": "https://phasereditor2d.com",
-        "version": 2
+        "version": 2,
+        "showAllFilesInBlocks": false
     }
 }

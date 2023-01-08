@@ -2,9 +2,29 @@
     "section1": {
         "files": [
             {
-                "url": "assets/guapen.png",
-                "type": "image",
-                "key": "guapen"
+                "url": "src/scenes/Bomb.js",
+                "type": "script",
+                "key": "Bomb"
+            },
+            {
+                "url": "src/scenes/Button.js",
+                "type": "script",
+                "key": "Button"
+            },
+            {
+                "url": "src/constants.js",
+                "type": "script",
+                "key": "constants"
+            },
+            {
+                "url": "src/scenes/Door.js",
+                "type": "script",
+                "key": "Door"
+            },
+            {
+                "url": "src/scenes/Player.js",
+                "type": "script",
+                "key": "Player"
             }
         ]
     },

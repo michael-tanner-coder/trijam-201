@@ -2,34 +2,380 @@
     "id": "01aefa93-6044-4159-8358-7e91310aa05f",
     "sceneType": "SCENE",
     "settings": {
+        "snapEnabled": true,
+        "snapWidth": 1,
+        "snapHeight": 1,
         "preloadPackFiles": [],
         "createMethodName": "editorCreate",
-        "sceneKey": "Level"
+        "sceneKey": "Level",
+        "borderWidth": 160,
+        "borderHeight": 120
     },
     "displayList": [
         {
-            "type": "Image",
-            "id": "7d5827fd-34f6-473f-90e0-b9424a51d5fa",
-            "label": "dino",
-            "components": [
-                "PushOnClick"
+            "prefabId": "c610b2d9-90c1-4253-9a39-899c92ff3a4f",
+            "id": "551af953-6a8f-47ec-a261-c3bcce326046",
+            "unlock": [
+                "x",
+                "y"
             ],
-            "texture": {
-                "key": "dino"
-            },
-            "x": 400,
-            "y": 218
+            "label": "background",
+            "scope": "CLASS",
+            "components": [],
+            "x": 80,
+            "y": 0
         },
         {
-            "type": "Text",
-            "id": "b2b3dbd5-2106-41fa-8a04-9b511e3401a9",
-            "label": "text_1",
+            "prefabId": "2b828d01-a66d-4663-8332-05f81441504c",
+            "id": "a94b95e1-0587-4eb2-9a61-775762ef3191",
+            "unlock": [
+                "x",
+                "y",
+                "Tween.startPlaying"
+            ],
+            "label": "bomb",
+            "scope": "CLASS",
             "components": [],
-            "x": 400,
-            "y": 408,
-            "text": "Phaser 3 + Phaser Editor 2D",
-            "fontFamily": "Arial",
-            "fontSize": "30px"
+            "Tween.startPlaying": false,
+            "x": 84,
+            "y": -37
+        },
+        {
+            "prefabId": "12f6fc42-ac64-4c58-aa56-dae17a407d8d",
+            "id": "412efa42-45db-4fdb-80cf-3659c4c3129e",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "floor",
+            "scope": "CLASS",
+            "components": [],
+            "x": 80,
+            "y": 108
+        },
+        {
+            "prefabId": "c53c2179-e828-4dbe-8162-7e976089adcf",
+            "id": "c6cac3e8-35e6-42f7-b618-bcfe832371bb",
+            "unlock": [
+                "x",
+                "y",
+                "originX",
+                "originY"
+            ],
+            "label": "timer",
+            "scope": "CLASS",
+            "components": [],
+            "x": 52,
+            "y": 112,
+            "originX": 0,
+            "originY": 0.5
+        },
+        {
+            "type": "Image",
+            "id": "0cf08461-5875-4d24-ab0e-1219ea013086",
+            "label": "timer_frame",
+            "components": [],
+            "texture": {
+                "key": "timer-frame"
+            },
+            "x": 78,
+            "y": 112
+        },
+        {
+            "prefabId": "05081866-403b-4ae1-ac29-25173504d49e",
+            "id": "c0df523f-8a32-4e8b-878a-2f60cdb0ed4a",
+            "unlock": [
+                "x",
+                "y",
+                "Connection.object"
+            ],
+            "label": "button_1",
+            "components": [],
+            "Connection.object": "blast_door_1",
+            "x": 138,
+            "y": 42
+        },
+        {
+            "type": "Image",
+            "id": "328d44b7-55c0-4418-b11e-d1ae7a2da95c",
+            "label": "ceiling_1",
+            "components": [],
+            "texture": {
+                "key": "ceiling"
+            },
+            "x": 137,
+            "y": 38,
+            "flipX": true
+        },
+        {
+            "prefabId": "05081866-403b-4ae1-ac29-25173504d49e",
+            "id": "441600f9-8c08-44b2-9c13-1f2ed776850b",
+            "unlock": [
+                "x",
+                "y",
+                "Connection.object"
+            ],
+            "label": "button",
+            "components": [],
+            "Connection.object": "blast_door",
+            "x": 22,
+            "y": 42
+        },
+        {
+            "type": "Image",
+            "id": "fdae37b1-8594-449d-9f45-628e538c2381",
+            "label": "ceiling",
+            "components": [],
+            "texture": {
+                "key": "ceiling"
+            },
+            "x": 23,
+            "y": 38
+        },
+        {
+            "prefabId": "fe1b0ed5-861c-43b3-a779-5c68dcf16dfc",
+            "id": "16f96230-059a-4ff0-9f4a-eacfa0441a75",
+            "unlock": [
+                "x",
+                "y",
+                "Connection.object"
+            ],
+            "label": "blast_door",
+            "components": [],
+            "Connection.object": "player_1",
+            "x": 40,
+            "y": 39
+        },
+        {
+            "type": "Image",
+            "id": "5f690ee0-c611-4842-88c3-64784a856ade",
+            "label": "hour_glass",
+            "components": [],
+            "texture": {
+                "key": "hour-glass"
+            },
+            "x": 78,
+            "y": 102
+        },
+        {
+            "prefabId": "2bb3479d-9eb6-41a7-8738-572da8e0e45d",
+            "id": "c77021b5-fbe6-4f84-b514-d8e7aa3b7ae5",
+            "unlock": [
+                "x",
+                "y",
+                "Jump.jumpKey",
+                "Connection.object"
+            ],
+            "label": "player_1",
+            "scope": "CLASS",
+            "components": [],
+            "Jump.jumpKey": "w",
+            "Connection.object": "scoreFill",
+            "x": 21,
+            "y": 79
+        },
+        {
+            "prefabId": "fe1b0ed5-861c-43b3-a779-5c68dcf16dfc",
+            "id": "381cbabe-9c62-4222-a7c2-4ffc748af7a8",
+            "unlock": [
+                "x",
+                "y",
+                "Connection.object"
+            ],
+            "label": "blast_door_1",
+            "components": [],
+            "Connection.object": "player_2",
+            "x": 115,
+            "y": 39
+        },
+        {
+            "prefabId": "2bb3479d-9eb6-41a7-8738-572da8e0e45d",
+            "id": "b31c4dde-cbdf-4970-a468-b18e617fcb51",
+            "unlock": [
+                "x",
+                "y",
+                "flipX",
+                "flipY",
+                "Jump.jumpKey",
+                "Connection.object"
+            ],
+            "label": "player_2",
+            "scope": "CLASS",
+            "components": [],
+            "Jump.jumpKey": "up",
+            "Connection.object": "scoreFill_1",
+            "x": 138,
+            "y": 79,
+            "flipX": true,
+            "flipY": false
+        },
+        {
+            "prefabId": "27cb8dd0-8faa-4859-bf6c-b15b8b7ba967",
+            "id": "da9a3589-efd0-4e94-80a2-b845d4a00de4",
+            "unlock": [
+                "x",
+                "y",
+                "visible"
+            ],
+            "label": "collider",
+            "components": [],
+            "x": 22,
+            "y": 35,
+            "visible": false
+        },
+        {
+            "prefabId": "27cb8dd0-8faa-4859-bf6c-b15b8b7ba967",
+            "id": "0b505f03-a197-4b40-a3f4-c76ca4b5a74b",
+            "unlock": [
+                "x",
+                "y",
+                "visible"
+            ],
+            "label": "collider_1",
+            "components": [],
+            "x": 138,
+            "y": 35,
+            "visible": false
+        },
+        {
+            "prefabId": "35441004-73a4-49bc-b6a7-1b66e0c2d076",
+            "id": "3c3280cd-f2c9-46c0-8edb-9c4dad7aad05",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "pointSign",
+            "components": [],
+            "x": 22,
+            "y": 20
+        },
+        {
+            "prefabId": "35441004-73a4-49bc-b6a7-1b66e0c2d076",
+            "id": "ce2d0e11-418f-4bc2-996a-c58b85f0e14d",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "pointSign_1",
+            "components": [],
+            "x": 138,
+            "y": 20
+        },
+        {
+            "prefabId": "e1cb4814-35f7-4519-b73a-4ca1754d2493",
+            "id": "c736cb43-a13f-4c86-aba5-514260422d9b",
+            "unlock": [
+                "x",
+                "y",
+                "Score.player"
+            ],
+            "label": "scoreFill",
+            "scope": "CLASS",
+            "components": [],
+            "Score.player": "player_1",
+            "x": 16,
+            "y": 16
+        },
+        {
+            "type": "Image",
+            "id": "502f1305-fbe6-4d3f-926e-823be227261c",
+            "label": "score",
+            "components": [],
+            "texture": {
+                "key": "score"
+            },
+            "x": 22,
+            "y": 16
+        },
+        {
+            "type": "Image",
+            "id": "7b88d781-fc0e-443d-8a34-9cbd19d00f2d",
+            "label": "score_1",
+            "components": [],
+            "texture": {
+                "key": "score"
+            },
+            "x": 138,
+            "y": 16
+        },
+        {
+            "prefabId": "96ef55e2-0fd1-4f8c-8d77-b57c79978d68",
+            "id": "11157d67-4cae-4580-bf71-9431ec2622e8",
+            "unlock": [
+                "x",
+                "y",
+                "visible"
+            ],
+            "label": "explosion",
+            "scope": "CLASS",
+            "components": [
+                "Tween"
+            ],
+            "Tween.duration": 1000,
+            "Tween.ease": "Quad.easeIn",
+            "Tween.startPlaying": false,
+            "Tween.property": "scale",
+            "Tween.targetValue": "4",
+            "x": 78,
+            "y": 72,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "5c74505d-09a3-40c9-9b9c-7bfe0f24af08",
+            "label": "start_banner",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "start-banner"
+            },
+            "x": 80,
+            "y": 48
+        },
+        {
+            "prefabId": "e1cb4814-35f7-4519-b73a-4ca1754d2493",
+            "id": "5e9752bb-a03b-4d6e-91a9-817e42101e3b",
+            "unlock": [
+                "x",
+                "y",
+                "Score.player",
+                "Score.score"
+            ],
+            "label": "scoreFill_1",
+            "scope": "CLASS",
+            "components": [],
+            "Score.score": 0,
+            "Score.player": "player_2",
+            "x": 132,
+            "y": 16
+        },
+        {
+            "prefabId": "5fcd222b-dbe3-4457-8ffb-606c4658bb7b",
+            "id": "71ed48dc-f774-4cf3-88ae-6e9e5a36a936",
+            "unlock": [
+                "x",
+                "y",
+                "visible"
+            ],
+            "label": "winnerUI",
+            "scope": "CLASS",
+            "components": [],
+            "x": 80,
+            "y": 48,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "9b6f0f0b-c0ba-4ec9-80cb-04389dafb486",
+            "label": "bigText",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "text-one"
+            },
+            "x": 78,
+            "y": 51,
+            "visible": false
         }
     ],
     "plainObjects": [],
@@ -37,6 +383,59 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 2
-    }
+        "version": 3
+    },
+    "lists": [
+        {
+            "id": "39ae8483-b09f-45a1-8836-c4f835066400",
+            "label": "players",
+            "objectIds": [
+                "c77021b5-fbe6-4f84-b514-d8e7aa3b7ae5",
+                "b31c4dde-cbdf-4970-a468-b18e617fcb51"
+            ]
+        },
+        {
+            "id": "831e5357-985b-43ac-97cb-1e19fb30baad",
+            "label": "buttons",
+            "objectIds": [
+                "c0df523f-8a32-4e8b-878a-2f60cdb0ed4a",
+                "441600f9-8c08-44b2-9c13-1f2ed776850b"
+            ]
+        },
+        {
+            "id": "f607d7e1-6b51-45b1-898f-4d523d45e2b6",
+            "label": "doors",
+            "objectIds": [
+                "16f96230-059a-4ff0-9f4a-eacfa0441a75",
+                "381cbabe-9c62-4222-a7c2-4ffc748af7a8"
+            ]
+        },
+        {
+            "id": "1691e91e-7156-41bf-afc8-fd1bb7f3d22d",
+            "label": "ground",
+            "objectIds": [
+                "412efa42-45db-4fdb-80cf-3659c4c3129e"
+            ]
+        },
+        {
+            "id": "9412a0aa-9308-4919-9597-55e3e4df1f15",
+            "label": "stoppers",
+            "objectIds": [
+                "0b505f03-a197-4b40-a3f4-c76ca4b5a74b",
+                "da9a3589-efd0-4e94-80a2-b845d4a00de4"
+            ]
+        },
+        {
+            "id": "a5ccfc37-24a3-4c0e-b19e-18596c71621a",
+            "label": "explosions"
+        },
+        {
+            "id": "6bc4b4b6-aecc-445d-ab3a-a8010f3f3608",
+            "label": "scorebars",
+            "objectIds": [
+                "5e9752bb-a03b-4d6e-91a9-817e42101e3b",
+                "c736cb43-a13f-4c86-aba5-514260422d9b"
+            ]
+        }
+    ]
 }
