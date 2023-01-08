@@ -292,10 +292,7 @@ class Level extends Phaser.Scene {
 
   /* START-USER-CODE */
   // JAM CHANGES
-  // TODO: make round duration a little longer to match tick sound
   // TODO: create game instructions to teach players the rules
-  // TODO: lengthen door sprite
-  // TODO: make an indicator that the player's button can't be pressed again
   // TODO: make a quieter door sound
   // TODO: add "press enter" to winner UI
 
