@@ -3,11 +3,10 @@
 /* START OF COMPILED CODE */
 
 class Level extends Phaser.Scene {
+  constructor() {
+    super("Level");
 
-	constructor() {
-		super("Level");
-
-		/* START-USER-CTR-CODE */
+    /* START-USER-CTR-CODE */
     this.first_press = true;
     this.characters = ["player-basic", "player-short", "player-tall"];
     this.states = {
@@ -26,6 +25,7 @@ class Level extends Phaser.Scene {
     this.tick_duration = 100; // in frames
     this.escalation = 0;
     this.transitionEvent = "transitionState";
+    this.prompt_count = 6;
 
     const defaultState = {
       exit: this.states.NEXT_BOMB,
@@ -67,297 +67,301 @@ class Level extends Phaser.Scene {
       },
     };
     /* END-USER-CTR-CODE */
-	}
+  }
 
-	/** @returns {void} */
-	editorCreate() {
+  /** @returns {void} */
+  editorCreate() {
+    // background
+    const background = new Background(this, 80, 0);
+    this.add.existing(background);
 
-		// background
-		const background = new Background(this, 80, 0);
-		this.add.existing(background);
+    // bomb
+    const bomb = new Bomb(this, 84, -37);
+    this.add.existing(bomb);
 
-		// bomb
-		const bomb = new Bomb(this, 84, -37);
-		this.add.existing(bomb);
+    // floor
+    const floor = new Floor(this, 80, 108);
+    this.add.existing(floor);
 
-		// floor
-		const floor = new Floor(this, 80, 108);
-		this.add.existing(floor);
+    // timer
+    const timer = new Timer(this, 52, 112);
+    this.add.existing(timer);
+    timer.setOrigin(0, 0.5);
 
-		// timer
-		const timer = new Timer(this, 52, 112);
-		this.add.existing(timer);
-		timer.setOrigin(0, 0.5);
+    // timer_frame
+    this.add.image(78, 112, "timer-frame");
 
-		// timer_frame
-		this.add.image(78, 112, "timer-frame");
+    // button_1
+    const button_1 = new Button(this, 138, 42);
+    this.add.existing(button_1);
 
-		// button_1
-		const button_1 = new Button(this, 138, 42);
-		this.add.existing(button_1);
+    // ceiling_1
+    const ceiling_1 = this.add.image(137, 38, "ceiling");
+    ceiling_1.flipX = true;
 
-		// ceiling_1
-		const ceiling_1 = this.add.image(137, 38, "ceiling");
-		ceiling_1.flipX = true;
+    // button
+    const button = new Button(this, 22, 42);
+    this.add.existing(button);
 
-		// button
-		const button = new Button(this, 22, 42);
-		this.add.existing(button);
+    // ceiling
+    this.add.image(23, 38, "ceiling");
 
-		// ceiling
-		this.add.image(23, 38, "ceiling");
+    // blast_door
+    const blast_door = new Door(this, 40, 39);
+    this.add.existing(blast_door);
 
-		// blast_door
-		const blast_door = new Door(this, 40, 39);
-		this.add.existing(blast_door);
+    // hour_glass
+    this.add.image(78, 102, "hour-glass");
 
-		// hour_glass
-		this.add.image(78, 102, "hour-glass");
+    // player_1
+    const player_1 = new Player(this, 21, 79);
+    this.add.existing(player_1);
 
-		// player_1
-		const player_1 = new Player(this, 21, 79);
-		this.add.existing(player_1);
+    // blast_door_1
+    const blast_door_1 = new Door(this, 115, 39);
+    this.add.existing(blast_door_1);
 
-		// blast_door_1
-		const blast_door_1 = new Door(this, 115, 39);
-		this.add.existing(blast_door_1);
+    // player_2
+    const player_2 = new Player(this, 138, 79);
+    this.add.existing(player_2);
+    player_2.flipX = true;
+    player_2.flipY = false;
 
-		// player_2
-		const player_2 = new Player(this, 138, 79);
-		this.add.existing(player_2);
-		player_2.flipX = true;
-		player_2.flipY = false;
+    // collider
+    const collider = new Collider(this, 22, 35);
+    this.add.existing(collider);
+    collider.visible = false;
 
-		// collider
-		const collider = new Collider(this, 22, 35);
-		this.add.existing(collider);
-		collider.visible = false;
+    // collider_1
+    const collider_1 = new Collider(this, 138, 35);
+    this.add.existing(collider_1);
+    collider_1.visible = false;
 
-		// collider_1
-		const collider_1 = new Collider(this, 138, 35);
-		this.add.existing(collider_1);
-		collider_1.visible = false;
+    // pointSign
+    const pointSign = new PointSign(this, 22, 20);
+    this.add.existing(pointSign);
 
-		// pointSign
-		const pointSign = new PointSign(this, 22, 20);
-		this.add.existing(pointSign);
+    // pointSign_1
+    const pointSign_1 = new PointSign(this, 138, 20);
+    this.add.existing(pointSign_1);
 
-		// pointSign_1
-		const pointSign_1 = new PointSign(this, 138, 20);
-		this.add.existing(pointSign_1);
+    // scoreFill
+    const scoreFill = new ScoreFill(this, 16, 16);
+    this.add.existing(scoreFill);
 
-		// scoreFill
-		const scoreFill = new ScoreFill(this, 16, 16);
-		this.add.existing(scoreFill);
+    // score
+    this.add.image(22, 16, "score");
 
-		// score
-		this.add.image(22, 16, "score");
+    // score_1
+    this.add.image(138, 16, "score");
 
-		// score_1
-		this.add.image(138, 16, "score");
+    // explosion
+    const explosion = new Explosion(this, 78, 72);
+    this.add.existing(explosion);
+    explosion.visible = false;
 
-		// explosion
-		const explosion = new Explosion(this, 78, 72);
-		this.add.existing(explosion);
-		explosion.visible = false;
+    // start_banner
+    const start_banner = this.add.image(80, 48, "start-banner");
 
-		// start_banner
-		const start_banner = this.add.image(80, 48, "start-banner");
+    // scoreFill_1
+    const scoreFill_1 = new ScoreFill(this, 132, 16);
+    this.add.existing(scoreFill_1);
 
-		// scoreFill_1
-		const scoreFill_1 = new ScoreFill(this, 132, 16);
-		this.add.existing(scoreFill_1);
+    // winnerUI
+    const winnerUI = new WinnerUI(this, 80, 48);
+    this.add.existing(winnerUI);
+    winnerUI.visible = false;
 
-		// winnerUI
-		const winnerUI = new WinnerUI(this, 80, 48);
-		this.add.existing(winnerUI);
-		winnerUI.visible = false;
+    // bigText
+    const bigText = this.add.sprite(78, 51, "text-one");
+    bigText.visible = false;
 
-		// bigText
-		const bigText = this.add.sprite(78, 51, "text-one");
-		bigText.visible = false;
+    // tutorial_prompt
+    const tutorial_prompt = new tutorial(this, -80, 48);
+    this.add.existing(tutorial_prompt);
+    tutorial_prompt.name = "tutorial_prompt";
 
-		// tutorial_prompt
-		const tutorial_prompt = new tutorial(this, -80, 48);
-		this.add.existing(tutorial_prompt);
-		tutorial_prompt.name = "tutorial_prompt";
+    // tutorial_prompt_1
+    const tutorial_prompt_1 = new tutorial(this, -240, 48);
+    this.add.existing(tutorial_prompt_1);
+    tutorial_prompt_1.name = "tutorial_prompt_1";
 
-		// tutorial_prompt_1
-		const tutorial_prompt_1 = new tutorial(this, -240, 48);
-		this.add.existing(tutorial_prompt_1);
-		tutorial_prompt_1.name = "tutorial_prompt_1";
+    // tutorial_prompt_2
+    const tutorial_prompt_2 = new tutorial(this, -400, 48);
+    this.add.existing(tutorial_prompt_2);
+    tutorial_prompt_2.name = "tutorial_prompt_2";
 
-		// tutorial_prompt_2
-		const tutorial_prompt_2 = new tutorial(this, -400, 48);
-		this.add.existing(tutorial_prompt_2);
-		tutorial_prompt_2.name = "tutorial_prompt_2";
+    // tutorial_prompt_3
+    const tutorial_prompt_3 = new tutorial(this, -560, 48);
+    this.add.existing(tutorial_prompt_3);
+    tutorial_prompt_3.name = "tutorial_prompt_3";
 
-		// tutorial_prompt_3
-		const tutorial_prompt_3 = new tutorial(this, -560, 48);
-		this.add.existing(tutorial_prompt_3);
-		tutorial_prompt_3.name = "tutorial_prompt_3";
+    // tutorial_prompt_4
+    const tutorial_prompt_4 = new tutorial(this, -720, 48);
+    this.add.existing(tutorial_prompt_4);
+    tutorial_prompt_4.name = "tutorial_prompt_4";
 
-		// tutorial_prompt_4
-		const tutorial_prompt_4 = new tutorial(this, -720, 48);
-		this.add.existing(tutorial_prompt_4);
-		tutorial_prompt_4.name = "tutorial_prompt_4";
+    // lists
+    const players = [player_1, player_2];
+    const buttons = [button_1, button];
+    const doors = [blast_door, blast_door_1];
+    const ground = [floor];
+    const stoppers = [collider_1, collider];
+    const explosions = [];
+    const scorebars = [scoreFill_1, scoreFill];
 
-		// lists
-		const players = [player_1, player_2];
-		const buttons = [button_1, button];
-		const doors = [blast_door, blast_door_1];
-		const ground = [floor];
-		const stoppers = [collider_1, collider];
-		const explosions = [];
-		const scorebars = [scoreFill_1, scoreFill];
+    // bomb (components)
+    const bombTween = Tween.getComponent(bomb);
+    bombTween.startPlaying = false;
 
-		// bomb (components)
-		const bombTween = Tween.getComponent(bomb);
-		bombTween.startPlaying = false;
+    // button_1 (components)
+    const button_1Connection = Connection.getComponent(button_1);
+    button_1Connection.object = blast_door_1;
 
-		// button_1 (components)
-		const button_1Connection = Connection.getComponent(button_1);
-		button_1Connection.object = blast_door_1;
+    // button (components)
+    const buttonConnection = Connection.getComponent(button);
+    buttonConnection.object = blast_door;
 
-		// button (components)
-		const buttonConnection = Connection.getComponent(button);
-		buttonConnection.object = blast_door;
+    // blast_door (components)
+    const blast_doorConnection = Connection.getComponent(blast_door);
+    blast_doorConnection.object = player_1;
 
-		// blast_door (components)
-		const blast_doorConnection = Connection.getComponent(blast_door);
-		blast_doorConnection.object = player_1;
+    // player_1 (components)
+    const player_1Jump = Jump.getComponent(player_1);
+    player_1Jump.jumpKey = "w";
+    const player_1Connection = Connection.getComponent(player_1);
+    player_1Connection.object = scoreFill;
 
-		// player_1 (components)
-		const player_1Jump = Jump.getComponent(player_1);
-		player_1Jump.jumpKey = "w";
-		const player_1Connection = Connection.getComponent(player_1);
-		player_1Connection.object = scoreFill;
+    // blast_door_1 (components)
+    const blast_door_1Connection = Connection.getComponent(blast_door_1);
+    blast_door_1Connection.object = player_2;
 
-		// blast_door_1 (components)
-		const blast_door_1Connection = Connection.getComponent(blast_door_1);
-		blast_door_1Connection.object = player_2;
+    // player_2 (components)
+    const player_2Jump = Jump.getComponent(player_2);
+    player_2Jump.jumpKey = "up";
+    const player_2Connection = Connection.getComponent(player_2);
+    player_2Connection.object = scoreFill_1;
 
-		// player_2 (components)
-		const player_2Jump = Jump.getComponent(player_2);
-		player_2Jump.jumpKey = "up";
-		const player_2Connection = Connection.getComponent(player_2);
-		player_2Connection.object = scoreFill_1;
+    // scoreFill (components)
+    const scoreFillScore = Score.getComponent(scoreFill);
+    scoreFillScore.player = player_1;
 
-		// scoreFill (components)
-		const scoreFillScore = Score.getComponent(scoreFill);
-		scoreFillScore.player = player_1;
+    // explosion (components)
+    const explosionTween = new Tween(explosion);
+    explosionTween.duration = 1000;
+    explosionTween.ease = "Quad.easeIn";
+    explosionTween.startPlaying = false;
+    explosionTween.property = "scale";
+    explosionTween.targetValue = 4;
 
-		// explosion (components)
-		const explosionTween = new Tween(explosion);
-		explosionTween.duration = 1000;
-		explosionTween.ease = "Quad.easeIn";
-		explosionTween.startPlaying = false;
-		explosionTween.property = "scale";
-		explosionTween.targetValue = 4;
+    // scoreFill_1 (components)
+    const scoreFill_1Score = Score.getComponent(scoreFill_1);
+    scoreFill_1Score.score = 0;
+    scoreFill_1Score.player = player_2;
 
-		// scoreFill_1 (components)
-		const scoreFill_1Score = Score.getComponent(scoreFill_1);
-		scoreFill_1Score.score = 0;
-		scoreFill_1Score.player = player_2;
+    // tutorial_prompt (components)
+    const tutorial_promptTutorialScript =
+      TutorialScript.getComponent(tutorial_prompt);
+    tutorial_promptTutorialScript.prompt = "JumpTutorial";
 
-		// tutorial_prompt (components)
-		const tutorial_promptTutorialScript = TutorialScript.getComponent(tutorial_prompt);
-		tutorial_promptTutorialScript.prompt = "JumpTutorial";
+    // tutorial_prompt_1 (components)
+    const tutorial_prompt_1TutorialScript =
+      TutorialScript.getComponent(tutorial_prompt_1);
+    tutorial_prompt_1TutorialScript.prompt = "ButtonTutorial";
 
-		// tutorial_prompt_1 (components)
-		const tutorial_prompt_1TutorialScript = TutorialScript.getComponent(tutorial_prompt_1);
-		tutorial_prompt_1TutorialScript.prompt = "ButtonTutorial";
+    // tutorial_prompt_2 (components)
+    const tutorial_prompt_2TutorialScript =
+      TutorialScript.getComponent(tutorial_prompt_2);
+    tutorial_prompt_2TutorialScript.prompt = "DoorTutorial";
 
-		// tutorial_prompt_2 (components)
-		const tutorial_prompt_2TutorialScript = TutorialScript.getComponent(tutorial_prompt_2);
-		tutorial_prompt_2TutorialScript.prompt = "DoorTutorial";
+    // tutorial_prompt_3 (components)
+    const tutorial_prompt_3TutorialScript =
+      TutorialScript.getComponent(tutorial_prompt_3);
+    tutorial_prompt_3TutorialScript.prompt = "PressesTutorial";
 
-		// tutorial_prompt_3 (components)
-		const tutorial_prompt_3TutorialScript = TutorialScript.getComponent(tutorial_prompt_3);
-		tutorial_prompt_3TutorialScript.prompt = "PressesTutorial";
+    // tutorial_prompt_4 (components)
+    const tutorial_prompt_4TutorialScript =
+      TutorialScript.getComponent(tutorial_prompt_4);
+    tutorial_prompt_4TutorialScript.prompt = "LuckTutorial";
 
-		// tutorial_prompt_4 (components)
-		const tutorial_prompt_4TutorialScript = TutorialScript.getComponent(tutorial_prompt_4);
-		tutorial_prompt_4TutorialScript.prompt = "LuckTutorial";
+    this.background = background;
+    this.bomb = bomb;
+    this.floor = floor;
+    this.timer = timer;
+    this.player_1 = player_1;
+    this.player_2 = player_2;
+    this.scoreFill = scoreFill;
+    this.explosion = explosion;
+    this.start_banner = start_banner;
+    this.scoreFill_1 = scoreFill_1;
+    this.winnerUI = winnerUI;
+    this.bigText = bigText;
+    this.tutorial_prompt = tutorial_prompt;
+    this.tutorial_prompt_1 = tutorial_prompt_1;
+    this.tutorial_prompt_2 = tutorial_prompt_2;
+    this.tutorial_prompt_3 = tutorial_prompt_3;
+    this.tutorial_prompt_4 = tutorial_prompt_4;
+    this.players = players;
+    this.buttons = buttons;
+    this.doors = doors;
+    this.ground = ground;
+    this.stoppers = stoppers;
+    this.explosions = explosions;
+    this.scorebars = scorebars;
 
-		this.background = background;
-		this.bomb = bomb;
-		this.floor = floor;
-		this.timer = timer;
-		this.player_1 = player_1;
-		this.player_2 = player_2;
-		this.scoreFill = scoreFill;
-		this.explosion = explosion;
-		this.start_banner = start_banner;
-		this.scoreFill_1 = scoreFill_1;
-		this.winnerUI = winnerUI;
-		this.bigText = bigText;
-		this.tutorial_prompt = tutorial_prompt;
-		this.tutorial_prompt_1 = tutorial_prompt_1;
-		this.tutorial_prompt_2 = tutorial_prompt_2;
-		this.tutorial_prompt_3 = tutorial_prompt_3;
-		this.tutorial_prompt_4 = tutorial_prompt_4;
-		this.players = players;
-		this.buttons = buttons;
-		this.doors = doors;
-		this.ground = ground;
-		this.stoppers = stoppers;
-		this.explosions = explosions;
-		this.scorebars = scorebars;
+    this.events.emit("scene-awake");
+  }
 
-		this.events.emit("scene-awake");
-	}
+  /** @type {Background} */
+  background;
+  /** @type {Bomb} */
+  bomb;
+  /** @type {Floor} */
+  floor;
+  /** @type {Timer} */
+  timer;
+  /** @type {Player} */
+  player_1;
+  /** @type {Player} */
+  player_2;
+  /** @type {ScoreFill} */
+  scoreFill;
+  /** @type {Explosion} */
+  explosion;
+  /** @type {Phaser.GameObjects.Image} */
+  start_banner;
+  /** @type {ScoreFill} */
+  scoreFill_1;
+  /** @type {WinnerUI} */
+  winnerUI;
+  /** @type {Phaser.GameObjects.Sprite} */
+  bigText;
+  /** @type {tutorial} */
+  tutorial_prompt;
+  /** @type {tutorial} */
+  tutorial_prompt_1;
+  /** @type {tutorial} */
+  tutorial_prompt_2;
+  /** @type {tutorial} */
+  tutorial_prompt_3;
+  /** @type {tutorial} */
+  tutorial_prompt_4;
+  /** @type {Player[]} */
+  players;
+  /** @type {Button[]} */
+  buttons;
+  /** @type {Door[]} */
+  doors;
+  /** @type {Floor[]} */
+  ground;
+  /** @type {Collider[]} */
+  stoppers;
+  /** @type {Array<any>} */
+  explosions;
+  /** @type {ScoreFill[]} */
+  scorebars;
 
-	/** @type {Background} */
-	background;
-	/** @type {Bomb} */
-	bomb;
-	/** @type {Floor} */
-	floor;
-	/** @type {Timer} */
-	timer;
-	/** @type {Player} */
-	player_1;
-	/** @type {Player} */
-	player_2;
-	/** @type {ScoreFill} */
-	scoreFill;
-	/** @type {Explosion} */
-	explosion;
-	/** @type {Phaser.GameObjects.Image} */
-	start_banner;
-	/** @type {ScoreFill} */
-	scoreFill_1;
-	/** @type {WinnerUI} */
-	winnerUI;
-	/** @type {Phaser.GameObjects.Sprite} */
-	bigText;
-	/** @type {tutorial} */
-	tutorial_prompt;
-	/** @type {tutorial} */
-	tutorial_prompt_1;
-	/** @type {tutorial} */
-	tutorial_prompt_2;
-	/** @type {tutorial} */
-	tutorial_prompt_3;
-	/** @type {tutorial} */
-	tutorial_prompt_4;
-	/** @type {Player[]} */
-	players;
-	/** @type {Button[]} */
-	buttons;
-	/** @type {Door[]} */
-	doors;
-	/** @type {Floor[]} */
-	ground;
-	/** @type {Collider[]} */
-	stoppers;
-	/** @type {Array<any>} */
-	explosions;
-	/** @type {ScoreFill[]} */
-	scorebars;
-
-	/* START-USER-CODE */
+  /* START-USER-CODE */
   // JAM CHANGES
   // TODO: implement tutorial
   // TODO: change round duration based on escalation value
@@ -373,6 +377,10 @@ class Level extends Phaser.Scene {
   }
 
   createAnimationEventListeners() {
+    this.events.on("moveprompt", () => {
+      this.prompt_count--;
+    });
+
     this.bigText.on("animationstart", (animation, frame) => {
       if (animation.key === "countdown") {
         this.countdown_sound.play();
@@ -472,6 +480,7 @@ class Level extends Phaser.Scene {
       this.start_banner.visible = true;
       if (this.keys.enter.isDown) {
         this.start_banner.visible = false;
+        this.events.emit("moveprompt");
         this.events.emit(TUTORIAL);
       }
     };
@@ -480,6 +489,9 @@ class Level extends Phaser.Scene {
       // if (this.keys.enter.isDown) {
       //   this.resetRound();
       // }
+      if (this.prompt_count <= 0) {
+        this.resetRound();
+      }
     };
 
     // NEXT BOMB

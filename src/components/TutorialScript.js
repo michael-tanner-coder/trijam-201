@@ -42,8 +42,12 @@ class TutorialScript extends UserComponent {
   update() {
     this.gameObject.setTexture(this.prompt);
     let gameObject = this.gameObject;
+
     let promptKey = gameObject.scene.keys.enter;
-    if (Phaser.Input.Keyboard.JustDown(promptKey)) {
+    if (
+      Phaser.Input.Keyboard.JustDown(promptKey) &&
+      gameObject.scene.state === TUTORIAL
+    ) {
       this.gameObject.scene.events.emit("moveprompt");
     }
     gameObject.x = lerp(gameObject.x, this.target_x, 0.15);
