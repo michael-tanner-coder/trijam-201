@@ -333,6 +333,23 @@
             "baseClass": "UserComponent",
             "gameObjectType": "Phaser.GameObjects.Image",
             "properties": []
+        },
+        {
+            "name": "TutorialScript",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "prompt",
+                    "label": "Prompt",
+                    "tooltip": "The prompt image to dislay",
+                    "defValue": "JumpTutorial",
+                    "customDefinition": true,
+                    "type": {
+                        "id": "asset-key"
+                    }
+                }
+            ]
         }
     ],
     "meta": {

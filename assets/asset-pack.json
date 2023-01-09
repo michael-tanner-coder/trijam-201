@@ -356,6 +356,16 @@
                 "key": "timer-frame"
             },
             {
+                "url": "src/scenes/tutorial.js",
+                "type": "script",
+                "key": "tutorial"
+            },
+            {
+                "url": "src/components/TutorialScript.js",
+                "type": "script",
+                "key": "TutorialScript"
+            },
+            {
                 "url": "src/components/Tween.js",
                 "type": "script",
                 "key": "Tween"
