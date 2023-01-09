@@ -14,6 +14,7 @@ const PRESSED = 1;
 const RELEASED = 2;
 
 // game states
+const TUTORIAL = "TUTORIAL";
 const NEXT_BOMB = "NEXT_BOMB";
 const COUNTDOWN = "COUNTDOWN";
 const ROUND_START = "ROUND_START";
