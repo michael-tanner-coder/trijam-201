@@ -367,7 +367,6 @@ class Level extends Phaser.Scene {
 
   // BUGS
   // TODO: tall player can knock button out of place
-  // TODO: bomb can fall through the floor sometimes (unsure of how to replicate)
   // TODO: no victory sound plays on game over
 
   transitionState(...args) {
@@ -725,6 +724,9 @@ class Level extends Phaser.Scene {
 
     // game state machine
     this.updateStateMachine();
+
+    // bomb update
+    this.bomb.update();
   }
 
   /* END-USER-CODE */
