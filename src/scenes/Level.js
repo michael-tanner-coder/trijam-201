@@ -292,7 +292,6 @@ class Level extends Phaser.Scene {
 
   /* START-USER-CODE */
   // JAM CHANGES
-  // TODO: prevent player input during round_end phase
   // TODO: implement tutorial
 
   // BUGS

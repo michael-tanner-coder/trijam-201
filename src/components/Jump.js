@@ -57,6 +57,11 @@ class Jump extends UserComponent {
         // reset gravity to default when grounded
         gameObject.body.setGravityY(300);
 
+        // prevent input during the round_end and game_over phases
+        if (gameObject.scene.timer.displayWidth <= 1) {
+          return;
+        }
+
         // start up a jump when grounded
         if (Phaser.Input.Keyboard.JustDown(jumpKey) || this.buffered_jump) {
           gameObject.state = JUMPING;
