@@ -363,13 +363,11 @@ class Level extends Phaser.Scene {
 
   /* START-USER-CODE */
   // JAM CHANGES
-  // TODO: implement tutorial
   // TODO: change round duration based on escalation value
 
   // BUGS
   // TODO: tall player can knock button out of place
   // TODO: bomb can fall through the floor sometimes (unsure of how to replicate)
-  // TODO: tick sound doesn't sync well with the timer
   // TODO: no victory sound plays on game over
 
   transitionState(...args) {
@@ -427,6 +425,7 @@ class Level extends Phaser.Scene {
       this.bomb.body.allowGravity = true;
       this.bomb.visible = true;
       this.setEscalationValue();
+
       this.buttons.forEach((button) => {
         const buttonScript = ButtonScript.getComponent(button);
         buttonScript.resetPresses();

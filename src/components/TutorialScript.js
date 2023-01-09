@@ -17,6 +17,7 @@ class TutorialScript extends UserComponent {
     this.gameObject.scene.events.on("moveprompt", () => {
       this.movePrompt();
     });
+    this.moving = false;
     /* END-USER-CTR-CODE */
 
     // custom definition props
@@ -35,8 +36,11 @@ class TutorialScript extends UserComponent {
 
   movePrompt() {
     // move tutorial prompt on the x-axis by one full unit (size of prompt)
-    this.target_x = this.gameObject.x + this.gameObject.displayWidth;
-    console.log(this.target_x);
+    if (!this.moving) {
+      this.target_x = this.gameObject.x + this.gameObject.displayWidth;
+      console.log(this.target_x);
+      this.moving = true;
+    }
   }
 
   update() {
@@ -46,11 +50,17 @@ class TutorialScript extends UserComponent {
     let promptKey = gameObject.scene.keys.enter;
     if (
       Phaser.Input.Keyboard.JustDown(promptKey) &&
-      gameObject.scene.state === TUTORIAL
+      gameObject.scene.state === TUTORIAL &&
+      !this.moving
     ) {
-      this.gameObject.scene.events.emit("moveprompt");
+      gameObject.scene.events.emit("moveprompt");
     }
-    gameObject.x = lerp(gameObject.x, this.target_x, 0.15);
+
+    gameObject.x = lerp(gameObject.x, this.target_x, 0.15, 0.1);
+
+    if (gameObject.x === this.target_x) {
+      this.moving = false;
+    }
   }
 
   /* END-USER-CODE */
