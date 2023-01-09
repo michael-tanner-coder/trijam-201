@@ -376,6 +376,81 @@
             "x": 78,
             "y": 51,
             "visible": false
+        },
+        {
+            "prefabId": "04d0ad04-c436-4f2d-9170-f83d22ac8587",
+            "id": "cd25697f-b572-4d6b-9673-3999e1ff4714",
+            "unlock": [
+                "x",
+                "y",
+                "TutorialScript.prompt"
+            ],
+            "label": "tutorial_prompt",
+            "scope": "CLASS",
+            "components": [],
+            "TutorialScript.prompt": "JumpTutorial",
+            "x": -80,
+            "y": 48
+        },
+        {
+            "prefabId": "04d0ad04-c436-4f2d-9170-f83d22ac8587",
+            "id": "d690e814-84dd-4d54-bf4e-b0ea3667ca48",
+            "unlock": [
+                "x",
+                "y",
+                "TutorialScript.prompt"
+            ],
+            "label": "tutorial_prompt_1",
+            "scope": "CLASS",
+            "components": [],
+            "TutorialScript.prompt": "ButtonTutorial",
+            "x": -240,
+            "y": 48
+        },
+        {
+            "prefabId": "04d0ad04-c436-4f2d-9170-f83d22ac8587",
+            "id": "45738f4c-602e-49a2-aacb-484053122598",
+            "unlock": [
+                "x",
+                "y",
+                "TutorialScript.prompt"
+            ],
+            "label": "tutorial_prompt_2",
+            "scope": "CLASS",
+            "components": [],
+            "TutorialScript.prompt": "DoorTutorial",
+            "x": -400,
+            "y": 48
+        },
+        {
+            "prefabId": "04d0ad04-c436-4f2d-9170-f83d22ac8587",
+            "id": "ced4a223-4aec-4aef-8913-87deb8ac229b",
+            "unlock": [
+                "x",
+                "y",
+                "TutorialScript.prompt"
+            ],
+            "label": "tutorial_prompt_3",
+            "scope": "CLASS",
+            "components": [],
+            "TutorialScript.prompt": "PressesTutorial",
+            "x": -560,
+            "y": 48
+        },
+        {
+            "prefabId": "04d0ad04-c436-4f2d-9170-f83d22ac8587",
+            "id": "817823b0-80e9-458c-a72a-ca9a13949ccd",
+            "unlock": [
+                "x",
+                "y",
+                "TutorialScript.prompt"
+            ],
+            "label": "tutorial_prompt_4",
+            "scope": "CLASS",
+            "components": [],
+            "TutorialScript.prompt": "LuckTutorial",
+            "x": -720,
+            "y": 48
         }
     ],
     "plainObjects": [],

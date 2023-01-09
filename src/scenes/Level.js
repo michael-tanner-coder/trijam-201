@@ -10,6 +10,7 @@ class Level extends Phaser.Scene {
     this.first_press = true;
     this.characters = ["player-basic", "player-short", "player-tall"];
     this.states = {
+      TUTORIAL: "TUTORIAL",
       NEXT_BOMB: "NEXT_BOMB",
       COUNTDOWN: "COUNTDOWN",
       ROUND_START: "ROUND_START",
@@ -35,6 +36,10 @@ class Level extends Phaser.Scene {
       initial: this.states.TITLE_SCREEN,
       states: {
         [this.states.TITLE_SCREEN]: {
+          ...defaultState,
+          exit: this.states.TUTORIAL,
+        },
+        [this.states.TUTORIAL]: {
           ...defaultState,
           exit: this.states.NEXT_BOMB,
         },
@@ -170,6 +175,26 @@ class Level extends Phaser.Scene {
     const bigText = this.add.sprite(78, 51, "text-one");
     bigText.visible = false;
 
+    // tutorial_prompt
+    const tutorial_prompt = new tutorial(this, -80, 48);
+    this.add.existing(tutorial_prompt);
+
+    // tutorial_prompt_1
+    const tutorial_prompt_1 = new tutorial(this, -240, 48);
+    this.add.existing(tutorial_prompt_1);
+
+    // tutorial_prompt_2
+    const tutorial_prompt_2 = new tutorial(this, -400, 48);
+    this.add.existing(tutorial_prompt_2);
+
+    // tutorial_prompt_3
+    const tutorial_prompt_3 = new tutorial(this, -560, 48);
+    this.add.existing(tutorial_prompt_3);
+
+    // tutorial_prompt_4
+    const tutorial_prompt_4 = new tutorial(this, -720, 48);
+    this.add.existing(tutorial_prompt_4);
+
     // lists
     const players = [player_1, player_2];
     const buttons = [button_1, button];
@@ -228,6 +253,31 @@ class Level extends Phaser.Scene {
     scoreFill_1Score.score = 0;
     scoreFill_1Score.player = player_2;
 
+    // tutorial_prompt (components)
+    const tutorial_promptTutorialScript =
+      TutorialScript.getComponent(tutorial_prompt);
+    tutorial_promptTutorialScript.prompt = "JumpTutorial";
+
+    // tutorial_prompt_1 (components)
+    const tutorial_prompt_1TutorialScript =
+      TutorialScript.getComponent(tutorial_prompt_1);
+    tutorial_prompt_1TutorialScript.prompt = "ButtonTutorial";
+
+    // tutorial_prompt_2 (components)
+    const tutorial_prompt_2TutorialScript =
+      TutorialScript.getComponent(tutorial_prompt_2);
+    tutorial_prompt_2TutorialScript.prompt = "DoorTutorial";
+
+    // tutorial_prompt_3 (components)
+    const tutorial_prompt_3TutorialScript =
+      TutorialScript.getComponent(tutorial_prompt_3);
+    tutorial_prompt_3TutorialScript.prompt = "PressesTutorial";
+
+    // tutorial_prompt_4 (components)
+    const tutorial_prompt_4TutorialScript =
+      TutorialScript.getComponent(tutorial_prompt_4);
+    tutorial_prompt_4TutorialScript.prompt = "LuckTutorial";
+
     this.background = background;
     this.bomb = bomb;
     this.floor = floor;
@@ -240,6 +290,11 @@ class Level extends Phaser.Scene {
     this.scoreFill_1 = scoreFill_1;
     this.winnerUI = winnerUI;
     this.bigText = bigText;
+    this.tutorial_prompt = tutorial_prompt;
+    this.tutorial_prompt_1 = tutorial_prompt_1;
+    this.tutorial_prompt_2 = tutorial_prompt_2;
+    this.tutorial_prompt_3 = tutorial_prompt_3;
+    this.tutorial_prompt_4 = tutorial_prompt_4;
     this.players = players;
     this.buttons = buttons;
     this.doors = doors;
@@ -275,6 +330,16 @@ class Level extends Phaser.Scene {
   winnerUI;
   /** @type {Phaser.GameObjects.Sprite} */
   bigText;
+  /** @type {tutorial} */
+  tutorial_prompt;
+  /** @type {tutorial} */
+  tutorial_prompt_1;
+  /** @type {tutorial} */
+  tutorial_prompt_2;
+  /** @type {tutorial} */
+  tutorial_prompt_3;
+  /** @type {tutorial} */
+  tutorial_prompt_4;
   /** @type {Player[]} */
   players;
   /** @type {Button[]} */
@@ -293,6 +358,7 @@ class Level extends Phaser.Scene {
   /* START-USER-CODE */
   // JAM CHANGES
   // TODO: implement tutorial
+  // TODO: change round duration based on escalation value
 
   // BUGS
   // TODO: tall player can knock button out of place
@@ -342,6 +408,9 @@ class Level extends Phaser.Scene {
   createStateOnMethods = () => {
     // TITLE SCREEN
     this.state_machine.states.TITLE_SCREEN.on = () => {};
+
+    // TUTORIAL
+    this.state_machine.states.TUTORIAL.on = () => {};
 
     // NEXT BOMB
     this.state_machine.states.NEXT_BOMB.on = () => {
@@ -401,8 +470,14 @@ class Level extends Phaser.Scene {
       this.start_banner.visible = true;
       if (this.keys.enter.isDown) {
         this.start_banner.visible = false;
-        this.resetRound();
+        this.events.emit(TUTORIAL);
       }
+    };
+
+    this.state_machine.states.TUTORIAL.update = () => {
+      // if (this.keys.enter.isDown) {
+      //   this.resetRound();
+      // }
     };
 
     // NEXT BOMB
