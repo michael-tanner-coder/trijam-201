@@ -1,39 +1,39 @@
 {
-    "anims": [
+  "anims": [
+    {
+      "key": "countdown",
+      "type": "frame",
+      "frames": [
         {
-            "key": "countdown",
-            "type": "frame",
-            "frames": [
-                {
-                    "key": "text-one",
-                    "duration": 1000,
-                    "keyframe": false
-                },
-                {
-                    "key": "text-two",
-                    "duration": 1000,
-                    "keyframe": false
-                },
-                {
-                    "key": "text-three",
-                    "duration": 1000,
-                    "keyframe": false
-                }
-            ],
-            "frameRate": 24,
-            "skipMissedFrames": true,
-            "showOnStart": true,
-            "hideOnComplete": true
+          "key": "text-three",
+          "duration": 1000,
+          "keyframe": false
+        },
+        {
+          "key": "text-two",
+          "duration": 1000,
+          "keyframe": false
+        },
+        {
+          "key": "text-one",
+          "duration": 1000,
+          "keyframe": false
         }
-    ],
-    "globalTimeScale": 1,
-    "meta": {
-        "app": "Phaser Editor 2D v3",
-        "contentType": "Phaser v3 Animations"
-    },
-    "settings": {
-        "sourceLang": "JAVA_SCRIPT",
-        "esModule": false,
-        "generateCode": false
+      ],
+      "frameRate": 24,
+      "skipMissedFrames": true,
+      "showOnStart": true,
+      "hideOnComplete": true
     }
+  ],
+  "globalTimeScale": 1,
+  "meta": {
+    "app": "Phaser Editor 2D v3",
+    "contentType": "Phaser v3 Animations"
+  },
+  "settings": {
+    "sourceLang": "JAVA_SCRIPT",
+    "esModule": false,
+    "generateCode": false
+  }
 }
