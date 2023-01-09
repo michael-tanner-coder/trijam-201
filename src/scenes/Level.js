@@ -366,7 +366,7 @@ class Level extends Phaser.Scene {
   // TODO: change round duration based on escalation value
 
   // BUGS
-  // TODO: tall player can knock button out of place
+  // TODO: player can knock button out of place
   // TODO: no victory sound plays on game over
 
   transitionState(...args) {
@@ -710,6 +710,9 @@ class Level extends Phaser.Scene {
     this.physics.add.collider(this.bomb, this.ground);
     this.physics.add.collider(this.players, this.buttons);
     this.physics.add.collider(this.buttons, this.stoppers);
+    this.physics.add.overlap(this.players, this.buttons, (player) => {
+      player.state = FALLING;
+    });
 
     // states
     this.createAnimationEventListeners();
