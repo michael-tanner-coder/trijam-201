@@ -14,6 +14,9 @@ class TutorialScript extends UserComponent {
 
     /* START-USER-CTR-CODE */
     this.target_x = gameObject.x;
+    this.gameObject.scene.events.on("moveprompt", () => {
+      this.movePrompt();
+    });
     /* END-USER-CTR-CODE */
 
     // custom definition props
@@ -30,14 +33,18 @@ class TutorialScript extends UserComponent {
 
   /* START-USER-CODE */
 
+  movePrompt() {
+    // move tutorial prompt on the x-axis by one full unit (size of prompt)
+    this.target_x = this.gameObject.x + this.gameObject.displayWidth;
+    console.log(this.target_x);
+  }
+
   update() {
     this.gameObject.setTexture(this.prompt);
     let gameObject = this.gameObject;
     let promptKey = gameObject.scene.keys.enter;
     if (Phaser.Input.Keyboard.JustDown(promptKey)) {
-      // move tutorial prompt on the x-axis by one full unit (size of prompt)
-      this.target_x = gameObject.x + gameObject.displayWidth;
-      console.log(this.target_x);
+      this.gameObject.scene.events.emit("moveprompt");
     }
     gameObject.x = lerp(gameObject.x, this.target_x, 0.15);
   }

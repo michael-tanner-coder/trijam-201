@@ -196,8 +196,8 @@
                 "y",
                 "flipX",
                 "flipY",
-                "Jump.jumpKey",
-                "Connection.object"
+                "Connection.object",
+                "Jump.jumpKey"
             ],
             "label": "player_2",
             "scope": "CLASS",
@@ -386,6 +386,7 @@
                 "TutorialScript.prompt"
             ],
             "label": "tutorial_prompt",
+            "useGameObjectName": true,
             "scope": "CLASS",
             "components": [],
             "TutorialScript.prompt": "JumpTutorial",
@@ -401,6 +402,7 @@
                 "TutorialScript.prompt"
             ],
             "label": "tutorial_prompt_1",
+            "useGameObjectName": true,
             "scope": "CLASS",
             "components": [],
             "TutorialScript.prompt": "ButtonTutorial",
@@ -416,6 +418,7 @@
                 "TutorialScript.prompt"
             ],
             "label": "tutorial_prompt_2",
+            "useGameObjectName": true,
             "scope": "CLASS",
             "components": [],
             "TutorialScript.prompt": "DoorTutorial",
@@ -431,6 +434,7 @@
                 "TutorialScript.prompt"
             ],
             "label": "tutorial_prompt_3",
+            "useGameObjectName": true,
             "scope": "CLASS",
             "components": [],
             "TutorialScript.prompt": "PressesTutorial",
@@ -446,6 +450,7 @@
                 "TutorialScript.prompt"
             ],
             "label": "tutorial_prompt_4",
+            "useGameObjectName": true,
             "scope": "CLASS",
             "components": [],
             "TutorialScript.prompt": "LuckTutorial",
