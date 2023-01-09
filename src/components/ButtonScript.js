@@ -61,13 +61,17 @@ class ButtonScript extends UserComponent {
           this.gameObject.state = PRESSED;
         }
         break;
+
       case PRESSED:
         if (this.gameObject.body.touching.up && this.presses > 0) {
           this.activateDoors();
           // this.gameObject.state = RELEASED;
           this.presses -= 1;
         }
+        this.gameObject.body.y = this.gameObject.y;
+        this.gameObject.setY(38);
         break;
+
       case RELEASED:
         this.gameObject.y++;
         if (this.gameObject.y > this.target_y) {

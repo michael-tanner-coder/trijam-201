@@ -6,14 +6,13 @@
 /* END-USER-IMPORTS */
 
 class Jump extends UserComponent {
+  constructor(gameObject) {
+    super(gameObject);
 
-	constructor(gameObject) {
-		super(gameObject);
+    this.gameObject = gameObject;
+    gameObject["__Jump"] = this;
 
-		this.gameObject = gameObject;
-		gameObject["__Jump"] = this;
-
-		/* START-USER-CTR-CODE */
+    /* START-USER-CTR-CODE */
     this.is_jumping = false;
     this.can_double_jump = false;
     this.gravity = 300;
@@ -25,19 +24,19 @@ class Jump extends UserComponent {
     this.jump_was_pressed = false;
     /* END-USER-CTR-CODE */
 
-		// custom definition props
-		this.jumpKey = "";
-	}
+    // custom definition props
+    this.jumpKey = "";
+  }
 
-	/** @returns {Jump} */
-	static getComponent(gameObject) {
-		return gameObject["__Jump"];
-	}
+  /** @returns {Jump} */
+  static getComponent(gameObject) {
+    return gameObject["__Jump"];
+  }
 
-	/** @type {Phaser.GameObjects.Image} */
-	gameObject;
+  /** @type {Phaser.GameObjects.Image} */
+  gameObject;
 
-	/* START-USER-CODE */
+  /* START-USER-CODE */
 
   distanceToFloor() {
     let gameObject = this.gameObject;
