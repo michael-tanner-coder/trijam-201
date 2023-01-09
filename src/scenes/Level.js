@@ -366,7 +366,6 @@ class Level extends Phaser.Scene {
   // TODO: change round duration based on escalation value
 
   // BUGS
-  // TODO: player can knock button out of place
   // TODO: no victory sound plays on game over
 
   transitionState(...args) {
@@ -442,6 +441,8 @@ class Level extends Phaser.Scene {
     this.state_machine.states.ROUND_START.on = () => {
       // start ticking timer and playing bomb animation
       const timer_tween = Tween.getComponent(this.timer).animation;
+      this.bomb.body.allowGravity = false;
+      this.bomb.body.setVelocityY(0);
 
       // start timer
       if (timer_tween.state === Phaser.Tweens.REMOVED) {
@@ -479,6 +480,7 @@ class Level extends Phaser.Scene {
       if (this.keys.enter.isDown) {
         this.start_banner.visible = false;
         this.events.emit("moveprompt");
+        this.menu_sound.play();
         this.events.emit(TUTORIAL);
       }
     };

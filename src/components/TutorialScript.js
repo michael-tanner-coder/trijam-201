@@ -54,6 +54,7 @@ class TutorialScript extends UserComponent {
       !this.moving
     ) {
       gameObject.scene.events.emit("moveprompt");
+      gameObject.scene.menu_sound.play();
     }
 
     gameObject.x = lerp(gameObject.x, this.target_x, 0.15, 0.1);
